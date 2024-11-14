@@ -2,7 +2,7 @@
 apiVersion: security.nirmata.io/v1alpha1
 kind: KyvernoConfig
 metadata:
-  annotations: null
+  # annotations: null
     # {{- if .Values.globalAnnotations }}
     # {{- toYaml .Values.globalAnnotations | nindent 4 }}
     # {{- end }}
