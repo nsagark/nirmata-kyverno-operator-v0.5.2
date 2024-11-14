@@ -17,12 +17,12 @@ replicaCount: 1
 envVars: []
 
 image:
-  repository: poc-dtr.visa.com/nirmata/nirmata-kyverno-operator
+  repository: ghcr.io/nirmata/nirmata-kyverno-operator
   # Defaults to chart appVersion
   tag:
   pullPolicy: IfNotPresent
   pullSecrets:
-    registry: poc-dtr.visa.com
+    registry: ghcr.io
     name: image-pull-secret
     create: false
     username:
@@ -92,7 +92,7 @@ kyverno:
               - watch
   templating:
     enabled: false
-    image: poc-dtr.visa.com/nirmata/kubectl:1.31.1
+    image: ghcr.io/nirmata/kubectl:1.31.1
     version: ~
   customNamespaces: false
   webhooksCleanup:
@@ -104,7 +104,7 @@ kyverno:
       enabled: true
       image:
         # -- (string) Image registry
-        registry: poc-dtr.visa.com
+        registry: ghcr.io
         # -- (string) Image repository
         repository: nirmata/kyverno-cli
   #   groups:
@@ -238,7 +238,7 @@ kyverno:
   generatecontrollerExtraResources: []
   image:
     # -- Image repository
-    repository: poc-dtr.visa.com
+    repository: ghcr.io
     # -- Image tag
     tag: v1.12.5-n4k.nirmata.6
 
@@ -255,7 +255,7 @@ kyverno:
       enabled: false
       image:
         registry: ~
-        repository: poc-dtr.visa.com/nirmata/kubectl
+        repository: ghcr.io/nirmata/kubectl
         tag: '1.31.1'
         pullPolicy: ~
       podSecurityContext: {}
@@ -277,18 +277,14 @@ kyverno:
       imageTag: 0.1.17
     webhooksCleanup:
       enabled: false
-      image: poc-dtr.visa.com/nirmata/kubectl:1.31.1
+      image: ghcr.io/nirmata/kubectl:1.31.1
     cleanupJobs:
       admissionReports:
         image:
           tag: '1.31.1'
-          registry: poc-dtr.visa.com
-          repository: nirmata/kubectl
       clusterAdmissionReports:
         image:
           tag: '1.31.1'
-          registry: poc-dtr.visa.com
-          repository: nirmata/kubectl
 
 policies:
   chartRepoUsername:
@@ -299,7 +295,7 @@ awsAdapter:
   namespace: kyverno-aws-adapter
   replicas: 1
   image:
-    repository: poc-dtr.visa.com/nirmata/kyverno-aws-adapter
+    repository: ghcr.io/nirmata/kyverno-aws-adapter
     tag: v0.3.0
   rbac:
     create: false
@@ -317,7 +313,7 @@ imageScanAdapter:
   namespace: image-scan-adapter
   replicas: 1
   image:
-    repository: poc-dtr.visa.com/nirmata/image-scan-adapter
+    repository: ghcr.io/nirmata/image-scan-adapter
     tag: v0.1.0
   rbac:
     create: false
@@ -332,7 +328,7 @@ cisAdapter:
   namespace: cis-adapter
   replicas: 1
   image:
-    repository: poc-dtr.visa.com/nirmata/kube-bench-adapter
+    repository: ghcr.io/nirmata/kube-bench-adapter
     tag: v0.2.1
   rbac:
     create: false
@@ -480,7 +476,7 @@ crds:
 
     image:
       # -- (string) Image registry
-      registry: poc-dtr.visa.com
+      registry: ghcr.io
       # -- (string) Image repository
       repository: nirmata/kyverno-cli
       # -- (string) Image tag
